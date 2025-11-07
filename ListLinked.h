@@ -2,7 +2,7 @@
 #define LISTLINKED_H
 
 #include <stdexcept>
-#include <ostream>
+#include <iostream>
 #include "List.h"
 #include "Node.h"
 
@@ -20,9 +20,9 @@ class ListLinked : public List<T>{
 
 		~ListLinked(){
 			while(first != nullptr){
-				Node<T>* aux = first->next;
-				delete first;
-				first = aux;
+				Node<T>* aux = first;
+				first = first -> next;
+				delete aux;
 			}
 		}
 
@@ -39,9 +39,10 @@ class ListLinked : public List<T>{
 
 		friend std::ostream& operator<<(std::ostream& out, const ListLinked<T> &list){
 			out << "Lista => ["<< std::endl;
-			Node<T>* aux = new Node<T>;
+			Node<T>* aux = list.first;
 			while(aux != nullptr){
 				out << aux->data <<std::endl;
+				aux = aux -> next;
 			}
 			out <<"]" << std::endl;
 			return out;
@@ -51,21 +52,31 @@ class ListLinked : public List<T>{
 			if(pos < 0 || pos > n){
 				throw std::out_of_range("Posicion Invalida");
 			}
+			Node<T>* in = new Node<T>(e);
 			Node<T>* aux = first -> next;
 			Node<T>* prev = first;
 			for(int i = 0; i == pos; i++){
 				prev = prev -> next;
 				aux = aux -> next;
-			}
-			Node<T>* in = new Node<T>;
-			prev -> next = in;
-			prev = in;
-			prev -> next = aux;
+				}
+				prev -> next = in;
+				prev = in;
+				prev -> next = aux;
 			n++;		
 		}
 
 		void append(T e) override{
-			inster(n,e);
+			if(pos < 0 || pos > n)
+				throw std::out_of_range("Posicion Invalida");
+			Node<T>* aux = first -> next;
+			Node<T>* prev = first;
+			while(aux != nullptr){
+				prev = aux;
+				aux = aux -> next;
+			}
+			Node<T>* in = new Node<T>(e);
+			prev -> next = in;
+			in -> next = aux;
 		}
 
 		void prepend(T e) override{
@@ -85,12 +96,13 @@ class ListLinked : public List<T>{
 			T ret = aux -> data;
 			prev -> next = aux -> next;
 			delete aux;
+			return ret;
 		}
 
 		T get(int pos) const override{
 			Node<T>* ret = first -> next;
 			for(int i = 0; i == pos; i++){
-				ret = ret -> prev;	
+				ret = ret -> next;	
 			}
 			return ret -> data;
 		}
@@ -104,6 +116,7 @@ class ListLinked : public List<T>{
 				}
 				aux = aux -> next;
 			}
+			return -1;
 
 		}
 
