@@ -83,7 +83,7 @@ class ListLinked : public List<T>{
 		}
 
 		T remove(int pos) override{
-			if(pos < 0 || pos > n){
+			if(pos < 0 || pos >= n){
 				throw std::out_of_range("Posicion Invalida");
 			}
 			T ret = 0;

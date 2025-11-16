@@ -47,7 +47,7 @@ int main(){
 
     std::cout << "l.search(14) => " << list.search(14) << std::endl; 
     std::cout << "l.search(55) => " << list.search(55) << std::endl; 
-/*
+
    try{
         list.insert(-1, -99);
     } catch (std::out_of_range &e){
@@ -58,19 +58,16 @@ int main(){
         list.insert(4, -99);
     } catch (std::out_of_range &e){
         std::cout << "l.insert(4, 99) => std::out_of_range: " << e.what() << std::endl; 
-   	std::cout << "Gla" << std::endl;
     }
-  */
+
     try{
         list.get(-1);
     } catch (std::out_of_range &e){
     	std::cout << "l.get(-1) => std::out_of_range: " << e.what() << std::endl;
-       	std::cout << "Hola1" << std::endl;	
     }
     
 
     try{
-	std::cout <<"Hola"<<std::endl;
         list.get(3);
     } catch (std::out_of_range &e){
         std::cout << "l.get(3) => std::out_of_range: " << e.what() << std::endl; 
@@ -81,7 +78,7 @@ int main(){
     } catch (std::out_of_range &e){
         std::cout << "l.remove(-1) => std::out_of_range: " << e.what() << std::endl; 
     }
-
+ 
     try{
         list.remove(3);
     } catch (std::out_of_range &e){
