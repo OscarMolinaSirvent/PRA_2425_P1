@@ -1,3 +1,5 @@
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 #include <iostream>
 #include <stdexcept>
 #include "Point2D.h"
@@ -16,6 +18,7 @@ class Rectangle : public Shape{
 	public:
 		static int const N_VERTICES = 4;
 		Rectangle();
+		Rectangle(std::string color, Point2D* vertices);
 		Rectangle(const Rectangle &r);
 		~Rectangle();
 		Point2D get_vertex(int id)const;
@@ -28,3 +31,4 @@ class Rectangle : public Shape{
 		void translate(double incX, double incY) override;
 		void print();
 };
+#endif
