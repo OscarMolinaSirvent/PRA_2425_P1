@@ -61,9 +61,9 @@ Rectangle& Rectangle::operator=(const Rectangle &r){
 }
 
 std::ostream& operator<<(std::ostream &out, const Rectangle &r){
-	out << "Rectangulo: " << "Vertices = (" << r.get_vertex(0) << "," <<
-		r.get_vertex(1) << "," << r.get_vertex(2) << "," << r.get_vertex(3) <<
-		")" << "color = " << r.color << std::endl;
+	out << "[Rectangulo: color = " << r.get_color() << "; " "v0 = " << r.get_vertex(0) <<"; "
+		" v1 = " << r.get_vertex(1)<< "; " << "v2 = " << r.get_vertex(2) << "; " << 
+		"v3 = " << r.get_vertex(3) <<"]";
        return out;	
 }
 
@@ -73,8 +73,8 @@ double Rectangle::area() const{
 }
 
 double Rectangle::perimeter() const{
-	return 2 * (Point2D::distance(vs[0],vs[1]) * 
-		Point2D::distance(vs[1],vs[2]));
+	return 2 * ((Point2D::distance(vs[0],vs[1]) + 
+		Point2D::distance(vs[1],vs[2])));
 }
 
 void Rectangle::translate(double incX, double incY){
@@ -85,7 +85,7 @@ void Rectangle::translate(double incX, double incY){
 }
 
 void Rectangle::print(){
-	std::cout << "Rectangulo: " << "Vertices = (" << vs[0] << "," <<
-		vs[1] << "," << vs[2] << "," << vs[3] <<
-		")" << "color = " << color << std::endl;
+	std::cout << "[Rectangulo: color = " << color << "; " "v0 = " << vs[0] <<"; "
+		" v1 = " << vs[1] << "; " << "v2 = " << vs[2] << "; " << "v3 = " << vs[3] <<
+		"]";
 }
