@@ -29,6 +29,6 @@ class Rectangle : public Shape{
 		double area() const override;
 		double perimeter() const override;
 		void translate(double incX, double incY) override;
-		void print();
+		void print() override;
 };
 #endif
