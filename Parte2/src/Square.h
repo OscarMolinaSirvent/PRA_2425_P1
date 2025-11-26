@@ -18,5 +18,5 @@ class Square : public Rectangle{
 		Square(std::string color, Point2D* vertices);
 		void set_vertices(Point2D* vertices) override;
 		friend std::ostream& operator<<(std::ostream &out,const Square &square);
-
+		void print() override;
 };
