@@ -8,11 +8,14 @@ Square::Square() : Rectangle(){
 } 
 Square::Square(std::string color, Point2D* vertices) : Rectangle(color,vertices){
 	if(check(vertices) == 0){
-		throw std::invalid_argument("Vertices erroneos");
+		throw std::invalid_argument("Estos vertices no forman un cuadrado");
 	}
 }
 
 void Square::set_vertices(Point2D* vertices){
+	if(check(vertices) == 0){
+		throw std::invalid_argument("Estos vertices no forman un cuadrado");
+	}
 	vs[0] = vertices[0];
 	vs[1] = vertices[1];
 	vs[2] = vertices[2];

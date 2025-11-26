@@ -7,10 +7,11 @@ class Square : public Rectangle{
 
 	private:
 		static bool check(Point2D* vertices){
-			return (Point2D::distance(vertices[0],vertices[1]) == 
-				Point2D::distance(vertices[1],vertices[2]) ==
-				Point2D::distance(vertices[2],vertices[3]) == 
-				Point2D::distance(vertices[3],vertices[0])); 
+			double d1 = Point2D::distance(vertices[0],vertices[1]);
+			double d2 = Point2D::distance(vertices[1],vertices[2]);
+			double d3 = Point2D::distance(vertices[2],vertices[3]);
+			double d4 = Point2D::distance(vertices[3],vertices[0]); 
+			return (d1 == d2 && d2 == d3 && d3 == d4);
 		}
 	
 	public:
