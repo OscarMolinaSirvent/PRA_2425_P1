@@ -1,3 +1,6 @@
+#ifndef SQUARE_H
+#define SQUARE_H
+
 #include "Rectangle.h"
 #include "Point2D.h"
 #include "Shape.h"
@@ -21,3 +24,5 @@ class Square : public Rectangle{
 		friend std::ostream& operator<<(std::ostream &out,const Square &square);
 		void print() override;
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef CIRCLE_H
+#define CIRCLE_H
+
 #include <ostream>
 #include "Shape.h"
 #include <cmath>
@@ -19,3 +22,5 @@ class Circle : public Shape{
 		void translate(double incX, double incY) override;
 		void print() override;		
 };
+
+#endif
