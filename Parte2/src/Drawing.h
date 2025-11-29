@@ -1,11 +1,13 @@
+#ifndef DRAWING_H
+#define DRAWING_H
 #include "Point2D.h"
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Square.h"
 #include <iostream>
 #include <stdexcept>
-#include "../../List.h"
-#include "../../ListArray.h"
+#include "../../Parte1/List.h"
+#include "../../Parte1/ListArray.h"
 
 
 class Drawing{
@@ -22,3 +24,5 @@ class Drawing{
 
 				
 };
+
+#endif

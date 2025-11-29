@@ -29,7 +29,7 @@ void Circle::set_radius(double r){
 std::ostream& operator<<(std::ostream &out, const Circle &c){
 	out << "[Circulo: " << "centro = " << c.get_center() <<"; " 
 		"radio = " << c.get_radius() << "; "
-		"color = " << c.color <<"]"<<std::endl;   
+		"color = " << c.color <<"]";   
 	return out;
 }
 
