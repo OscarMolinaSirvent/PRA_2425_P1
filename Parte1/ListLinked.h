@@ -86,7 +86,7 @@ class ListLinked : public List<T>{
 			if(pos < 0 || pos >= n){
 				throw std::out_of_range("Posicion Invalida");
 			}
-			T ret = 0;
+			T ret;
 			if(pos == 0){
 				Node<T>* aux = first;
 				ret = first -> data;
@@ -120,12 +120,12 @@ class ListLinked : public List<T>{
 		}
 
 		int search(T e) const override{
-			Node<T>* aux = first -> next;
-			int p = 0;
-			for(int i = 0; i >= n; i++){
+			Node<T>* aux = first;
+			for(int i = 0; i < n; i++){
 				if(aux -> data == e){
 					return i;
-				}		
+				}
+				aux = aux -> next;		
 			}
 			return -1;
 		}

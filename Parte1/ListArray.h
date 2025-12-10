@@ -35,9 +35,9 @@ class ListArray : public List<T>{
 		}
 
 		T operator[](int pos){
-                	if(pos < 0 || pos >= n)
+            if(pos < 0 || pos >= n){
 				throw std::out_of_range("Posicion invalida en el operador");
-			else{
+			}else{
 				return arr[pos];
 			}
        	 	}
@@ -52,8 +52,10 @@ class ListArray : public List<T>{
 		}
 
 		void insert(int pos, T e) override{
-			if(pos < 0 || pos > n)
+			if(pos < 0 || pos > n){
 				throw std::out_of_range("Posición invalida en insert");
+				}
+
 			if(n == max)
 				resize(max * 2);
 			for(int i = n; i > pos; i--)
@@ -73,8 +75,10 @@ class ListArray : public List<T>{
 
 		T remove(int pos) override{
 			T ret;
-			if(pos < 0 || pos > n)
+			if(pos < 0 || pos > n){
 				throw std::out_of_range("Posicion invalida de remove");
+			}
+				
 			ret = arr[pos];
 			for(int i = pos; i < n; i++){
 				arr[i] = arr[i + 1];	
@@ -84,6 +88,9 @@ class ListArray : public List<T>{
 		}
 
 		T get(int pos) const override{
+			if(pos < 0 || pos >= n){
+				throw std::out_of_range("Posicion invalida");
+			}
 			return arr[pos];
 		}
 
