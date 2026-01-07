@@ -1,3 +1,6 @@
+bin/testNode: testNode.cpp
+	mkdir -p bin
+	g++ -o bin/testNode testNode.cpp
 
 bin/testListLinked: testListLinked.cpp ListLinked.h List.h
 	mkdir -p bin
